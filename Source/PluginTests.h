@@ -66,6 +66,9 @@ struct PluginTests : public UnitTest
     /** @internal. */
     void runTest() override;
 
+    // Create test plugin
+    std::unique_ptr<AudioPluginInstance> testOpenPlugin(const PluginDescription&);
+
 private:
     const String fileOrID;
     const Options options;
@@ -74,7 +77,6 @@ private:
 
     OwnedArray<PluginDescription> typesFound;
 
-    std::unique_ptr<AudioPluginInstance> testOpenPlugin (const PluginDescription&);
     void testType (const PluginDescription&);
 };
 
